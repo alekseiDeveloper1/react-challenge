@@ -1,0 +1,100 @@
+.card {
+  min-width: 520px;
+  margin: 40px auto;
+  padding: 40px 32px 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(35, 35, 35, 0.03); 
+  outline: 6px solid white;
+  background: linear-gradient(
+    180deg, 
+    rgba(35, 35, 35, 0.03) 0%, 
+    rgba(35, 35, 35, 0) 50%
+  );
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(148, 163, 184, 0.1);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 10px;
+  border-radius: 999px;
+  box-shadow: 
+    0 12px 8px 0 rgba(0, 0, 0, 0.03),
+    0 0 0 2px #ffffff;  
+}
+
+.title {
+  margin: 0 0 4px;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  color: #020617;
+  line-height: 1.7;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  font-size: 18px;
+  text-align: center;
+  color: rgba(119, 119, 119, 0.5);
+  font-weight: 400;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.extras {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+  color: #cbd5f5;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+  font-size: 18px;
+}
+
+.label {
+  color: #9ca3af;
+}
+
+.footer {
+  text-align: center;
+  color: #6b7280;
+}
+
+.link {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+

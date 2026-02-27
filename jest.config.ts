@@ -32,6 +32,7 @@ export default {
   ],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '^@/(.*)$': '<rootDir>/src/$1',
     '^/vite.svg$': '<rootDir>/__mocks__/fileMock.js',
     './assets/react.svg': '<rootDir>/__mocks__/fileMock.js'
   },

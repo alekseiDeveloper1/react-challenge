@@ -1,0 +1,17 @@
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.checkbox__control {
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox__label {
+  cursor: pointer;
+}
+
