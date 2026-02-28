@@ -3,16 +3,14 @@
   margin: 40px auto;
   padding: 40px 32px 32px;
   border-radius: 24px;
-  border: 1px solid rgba(35, 35, 35, 0.03); 
-  outline: 6px solid white;
+  border: 1px solid var(--color-border-card);
+  outline: 6px solid var(--color-bg-surface);
   background: linear-gradient(
     180deg, 
     rgba(35, 35, 35, 0.03) 0%, 
     rgba(35, 35, 35, 0) 50%
   );
-  box-shadow:
-    0 24px 60px rgba(15, 23, 42, 0.18),
-    0 0 0 1px rgba(148, 163, 184, 0.1);
+  box-shadow: var(--shadow-card-strong), var(--shadow-card-subtle);
 }
 
 .logo {
@@ -33,7 +31,7 @@
   font-size: 40px;
   font-weight: 700;
   text-align: center;
-  color: #020617;
+  color: var(--color-text-primary);
   line-height: 1.7;
 }
 
@@ -41,7 +39,7 @@
   margin: 0 0 24px;
   font-size: 18px;
   text-align: center;
-  color: rgba(119, 119, 119, 0.5);
+  color: var(--color-text-subtle);
   font-weight: 400;
 }
 
@@ -69,27 +67,27 @@
   align-items: center;
   gap: 8px;
   margin: 8px 0;
-  color: #cbd5f5;
+  color: var(--color-divider-text);
 }
 
 .line {
   flex: 1;
   height: 1px;
-  background: #e5e7eb;
+  background: var(--color-border-muted);
   font-size: 18px;
 }
 
 .label {
-  color: #9ca3af;
+  color: var(--color-text-placeholder);
 }
 
 .footer {
   text-align: center;
-  color: #6b7280;
+  color: var(--color-text-secondary);
 }
 
 .link {
-  color: #2563eb;
+  color: var(--color-link);
   font-weight: 500;
   text-decoration: none;
 }

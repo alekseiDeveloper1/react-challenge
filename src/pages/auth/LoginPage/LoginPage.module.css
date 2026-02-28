@@ -4,6 +4,6 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: #F9F9F9;
+  background: var(--color-bg-page);
 }
 

@@ -7,7 +7,7 @@
 .label {
   font-size: 18px;
   font-weight: 500;
-  color: #0f172a;
+  color: var(--color-text-primary);
 }
 
 .input-wrapper {
@@ -16,8 +16,8 @@
   gap: 8px;
   padding: 10px 12px;
   border-radius: 14px;
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-surface);
 }
 
 .input-wrapper_error {
@@ -27,7 +27,7 @@
 .icon {
   width: 18px;
   height: 18px;
-  color: #9ca3af;
+  color: var(--color-text-placeholder);
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -40,15 +40,15 @@
   outline: none;
   background: transparent;
   font-size: 18px;
-  color: #020617;
+  color: var(--color-text-primary);
   min-height: 32px;
 }
 
 .input::placeholder {
-  color: #9ca3af;
+  color: var(--color-text-placeholder);
 }
 
 .error {
   font-size: 12px;
-  color: #ef4444;
+  color: var(--color-text-error);
 }
