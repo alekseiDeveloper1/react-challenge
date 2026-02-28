@@ -16,12 +16,17 @@ export const LoginForm = () => {
   }
 
   return (
-    <div className={cls.card}>
+    <div
+      className={cls.card}
+      role="dialog"
+      aria-labelledby="dialogTitle"
+      aria-describedby="dialogDesc"
+    >
       <div className={cls.logo}>
         <img src={authLogo}  alt="authorization logo" />
       </div>
-      <h1 className={cls.title}>Добро пожаловать!</h1>
-      <p className={cls.subtitle}>
+      <h1 id="dialogTitle" className={cls.title}>Добро пожаловать!</h1>
+      <p id="dialogDesc" className={cls.subtitle}>
         Пожалуйста, авторизируйтесь
       </p>
 
