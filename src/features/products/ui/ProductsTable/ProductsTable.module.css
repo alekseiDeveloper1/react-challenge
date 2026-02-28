@@ -1,0 +1,162 @@
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.title {
+  flex: 1 1 auto;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.headerPrimaryButton {
+  max-width: 170px;
+  height: 44px;
+}
+
+.headerIconButton {
+  max-width: 44px;
+}
+
+.searchRow {
+  margin-bottom: 16px;
+}
+
+.searchInputWrapper {
+  flex: 1 1 40%;
+}
+
+.sectionTitle {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.table {
+  overflow: hidden;
+}
+
+.row {
+  display: grid;
+  grid-template-columns:
+    36px
+    minmax(260px, 2.2fr)
+    minmax(120px, 1.1fr)
+    minmax(140px, 1.2fr)
+    110px
+    130px
+    90px
+    80px;
+  column-gap: 16px;
+  align-items: center;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--color-border-muted);
+  background: var(--color-bg-surface);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowHead {
+  background: var(--color-bg-page);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: none;
+}
+
+.rowActive {
+  position: relative;
+  background: #eef2ff;
+}
+
+.rowActive::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 3px;
+  background: var(--color-primary);
+}
+
+.cellCheckbox {
+  display: flex;
+  align-items: center;
+}
+
+.cellName {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cellNamePrimary {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.cellNameSecondary {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.cellVendor,
+.cellSku,
+.cellRating,
+.cellPrice {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.cellRatingValue {
+  font-size: 13px;
+  color: var(--color-text-primary);
+}
+
+.cellPriceValue {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.cellQuantity,
+.cellActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.iconButton,
+.iconButtonMuted {
+  composes: button iconButton from '@/components/ui/Button/Button.module.css';
+  font-size: 18px;
+  line-height: 1;
+}
+
+.iconButtonMuted {
+  background: var(--color-bg-surface);
+  color: var(--color-text-muted);
+  box-shadow: none;
+}
+
+.footer {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
