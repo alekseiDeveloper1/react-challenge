@@ -102,7 +102,6 @@ export const ProductsTable = () => {
             <div className={styles.cellRating}>Оценка</div>
             <div className={styles.cellPrice}>Цена, ₽</div>
             <div className={styles.cellQuantity} />
-            <div className={styles.cellActions} />
           </div>
 
           {PRODUCTS.map((product, index) => (
@@ -125,24 +124,26 @@ export const ProductsTable = () => {
               <div className={styles.cellSku}>{product.sku}</div>
               <div className={styles.cellRatingValue}>{product.rating}</div>
               <div className={styles.cellPriceValue}>{product.price}</div>
+              <div className={styles.btnWrap}>
+                <div className={styles.cellQuantity}>
+                  <Button
+                    variant="small"
+                    aria-label={`Добавить единицу товара ${product.name}`}
+                  >
+                    +
+                  </Button>
+                </div>
 
-              <div className={styles.cellQuantity}>
-                <Button
-                  variant="small"
-                  aria-label={`Добавить единицу товара ${product.name}`}
-                >
-                  +
-                </Button>
+                <div className={styles.cellActions}>
+                  <Button
+                    variant="small-transparent"
+                    aria-label={`Дополнительные действия с товаром ${product.name}`}
+                    icon={btn}
+                  >
+                  </Button>
+                </div>
               </div>
-
-              <div className={styles.cellActions}>
-                <Button
-                  variant="small-transparent"
-                  aria-label={`Дополнительные действия с товаром ${product.name}`}
-                  icon={btn}
-                >
-                </Button>
-              </div>
+              
             </div>
           ))}
         </div>

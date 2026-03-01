@@ -3,6 +3,7 @@ section {
   background: white;
   padding: 30px;
 }
+
 .header {
   display: flex;
   align-items: center;
@@ -26,12 +27,15 @@ section {
 .headerActions {
   display: flex;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
+
 .headerActionsBtn {
   display: flex;
   gap: 10px;
 }
+
 .headerPrimaryButton {
   max-width: 170px;
   height: 44px;
@@ -167,3 +171,7 @@ section {
   color: var(--color-text-secondary);
 }
 
+.btnWrap {
+  display: flex;
+  gap: 32px;
+}
