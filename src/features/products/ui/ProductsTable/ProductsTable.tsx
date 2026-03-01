@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/Button/Button'
 import { Checkbox } from '@/components/ui/Checkbox/Checkbox'
 import search from '@/assets/icons/search.svg'
 import arrowsClockwise from '@/assets/icons/ArrowsClockwise.svg'
+import btn from '@/assets/icons/btn.svg'
 
 type Product = {
   id: string
@@ -127,7 +128,7 @@ export const ProductsTable = () => {
 
             <div className={styles.cellQuantity}>
               <Button
-                className={`${styles.iconButton} iconButton`}
+                variant="small"
                 aria-label={`Добавить единицу товара ${product.name}`}
               >
                 +
@@ -136,10 +137,10 @@ export const ProductsTable = () => {
 
             <div className={styles.cellActions}>
               <Button
-                className={`${styles.iconButtonMuted} iconButton`}
+                variant="small-transparent"
                 aria-label={`Дополнительные действия с товаром ${product.name}`}
+                icon={btn}
               >
-                …
               </Button>
             </div>
           </div>
@@ -152,4 +153,3 @@ export const ProductsTable = () => {
     </section>
   )
 }
-

@@ -143,7 +143,6 @@
 
 .iconButton,
 .iconButtonMuted {
-  composes: button iconButton from '@/components/ui/Button/Button.module.css';
   font-size: 18px;
   line-height: 1;
 }

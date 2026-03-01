@@ -42,8 +42,6 @@
 
 .button_icon {
   width: auto;
-  min-width: 44px;
-  min-height: 44px;
   padding: 0;
   border-radius: 12px;
   display: inline-flex;
@@ -55,4 +53,25 @@
   width: 22px;
   height: 22px;
   flex-shrink: 0;
+}
+
+.button_small {
+    width: 52px;
+    height: 26px;
+    padding: 0;
+    font-size: 14px;
+}
+
+.button_small_transparent {
+    color: var(--color-text-secondary);
+    padding: 0;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_small_transparent:hover {
+  box-shadow: 0 14px 30px var(--color-border-hover);
 }

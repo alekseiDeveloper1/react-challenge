@@ -1,7 +1,11 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import styles from './Button.module.css'
 
-type ButtonVariant = 'primary' | 'transparent'
+type ButtonVariant =
+  | 'primary'
+  | 'transparent'
+  | 'small'
+  | 'small-transparent'
 
 type ButtonProps = {
   children?: ReactNode
@@ -21,6 +25,8 @@ export const Button = ({
   const combinedClassName = [
     styles.button,
     variant === 'transparent' && styles.button_transparent,
+    variant === 'small' && styles.button_small,
+    variant === 'small-transparent' && styles.button_small_transparent,
     icon && styles.button_icon,
     className,
   ]
@@ -34,4 +40,3 @@ export const Button = ({
     </button>
   )
 }
-
