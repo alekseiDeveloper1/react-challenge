@@ -66,90 +66,92 @@ const PRODUCTS: Product[] = [
 
 export const ProductsTable = () => {
   return (
-    <section >
+    <>
       <header className={styles.header}>
-        <h1 className={styles.title}>Товары</h1>
-        <div className={styles.searchInputWrapper}>
-          <Input
-            placeholder="Найти"
-            aria-label="Найти товары"
-            icon={search}
-          />
-        </div>
-        
+          <h1 className={styles.title}>Товары</h1>
+          <div className={styles.searchInputWrapper}>
+            <Input
+              placeholder="Найти"
+              aria-label="Найти товары"
+              icon={search}
+            />
+          </div>
       </header>
-
-      
-      <div className={styles.headerActions}>
-          <Button
-            icon={arrowsClockwise}
-            variant="transparent"
-            className={styles.headerIconButton}
-            aria-label="Обновить список товаров"
-          />
-          <Button className={styles.headerPrimaryButton}>Добавить</Button>
-        </div>
-      <div className={styles.sectionTitle}>Все позиции</div>
-
-      <div className={styles.table}>
-        <div className={`${styles.row} ${styles.rowHead}`}>
-          <div className={styles.cellCheckbox}>
-            <Checkbox aria-label="Выбрать все позиции" />
+      <section >
+        <div className={styles.headerActions}>
+          <div className={styles.sectionTitle}>Все позиции</div>
+          <div className={styles.headerActionsBtn} >
+            <Button
+              icon={arrowsClockwise}
+              variant="transparent"
+              className={styles.headerIconButton}
+              aria-label="Обновить список товаров"
+            />
+            <Button className={styles.headerPrimaryButton}>Добавить</Button>
           </div>
-          <div className={styles.cellName}>Наименование</div>
-          <div className={styles.cellVendor}>Вендор</div>
-          <div className={styles.cellSku}>Артикул</div>
-          <div className={styles.cellRating}>Оценка</div>
-          <div className={styles.cellPrice}>Цена, ₽</div>
-          <div className={styles.cellQuantity} />
-          <div className={styles.cellActions} />
         </div>
 
-        {PRODUCTS.map((product, index) => (
-          <div
-            key={product.id}
-            className={`${styles.row} ${
-              index === 2 ? styles.rowActive : ''
-            }`}
-          >
+        <div className={styles.table}>
+          <div className={`${styles.row} ${styles.rowHead}`}>
             <div className={styles.cellCheckbox}>
-              <Checkbox aria-label={`Выбрать товар ${product.name}`} />
+              <Checkbox aria-label="Выбрать все позиции" />
             </div>
-
-            <div className={styles.cellName}>
-              <div className={styles.cellNamePrimary}>{product.name}</div>
-              <div className={styles.cellNameSecondary}>{product.category}</div>
-            </div>
-
-            <div className={styles.cellVendor}>{product.vendor}</div>
-            <div className={styles.cellSku}>{product.sku}</div>
-            <div className={styles.cellRatingValue}>{product.rating}</div>
-            <div className={styles.cellPriceValue}>{product.price}</div>
-
-            <div className={styles.cellQuantity}>
-              <Button
-                variant="small"
-                aria-label={`Добавить единицу товара ${product.name}`}
-              >
-                +
-              </Button>
-            </div>
-
-            <div className={styles.cellActions}>
-              <Button
-                variant="small-transparent"
-                aria-label={`Дополнительные действия с товаром ${product.name}`}
-                icon={btn}
-              >
-              </Button>
-            </div>
+            <div className={styles.cellName}>Наименование</div>
+            <div className={styles.cellVendor}>Вендор</div>
+            <div className={styles.cellSku}>Артикул</div>
+            <div className={styles.cellRating}>Оценка</div>
+            <div className={styles.cellPrice}>Цена, ₽</div>
+            <div className={styles.cellQuantity} />
+            <div className={styles.cellActions} />
           </div>
-        ))}
-      </div>
 
-      <div className={styles.footer}>
-        Показано 1–20 из 120
-      </div>
-    </section>
+          {PRODUCTS.map((product, index) => (
+            <div
+              key={product.id}
+              className={`${styles.row} ${
+                index === 2 ? styles.rowActive : ''
+              }`}
+            >
+              <div className={styles.cellCheckbox}>
+                <Checkbox aria-label={`Выбрать товар ${product.name}`} />
+              </div>
+
+              <div className={styles.cellName}>
+                <div className={styles.cellNamePrimary}>{product.name}</div>
+                <div className={styles.cellNameSecondary}>{product.category}</div>
+              </div>
+
+              <div className={styles.cellVendor}>{product.vendor}</div>
+              <div className={styles.cellSku}>{product.sku}</div>
+              <div className={styles.cellRatingValue}>{product.rating}</div>
+              <div className={styles.cellPriceValue}>{product.price}</div>
+
+              <div className={styles.cellQuantity}>
+                <Button
+                  variant="small"
+                  aria-label={`Добавить единицу товара ${product.name}`}
+                >
+                  +
+                </Button>
+              </div>
+
+              <div className={styles.cellActions}>
+                <Button
+                  variant="small-transparent"
+                  aria-label={`Дополнительные действия с товаром ${product.name}`}
+                  icon={btn}
+                >
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.footer}>
+          Показано 1–20 из 120
+        </div>
+      </section>
+    </>
+    
   )
 }
