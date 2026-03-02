@@ -1,0 +1,11 @@
+import { useQuery } from '@tanstack/react-query';
+import { productsService } from '../../../api/productsService';
+
+const PRODUCTS_QUERY_KEY = 'products';
+
+export const useProducts = (searchTerm?: string) => {
+  return useQuery({
+    queryKey: [PRODUCTS_QUERY_KEY, searchTerm],
+    queryFn: () => productsService.getProducts(searchTerm),
+  });
+};
