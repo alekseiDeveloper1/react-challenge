@@ -1,5 +1,5 @@
-import { ProductsTable } from '@/features/products/ui/ProductsTable/ProductsTable'
-import styles from './ProductsPage.module.css'
+import { ProductsTable } from '@/features/products/ui/ProductsTable/ProductsTable';
+import styles from './ProductsPage.module.css';
 
 export const ProductsPage = () => (
   <div className={styles.page}>
@@ -7,5 +7,4 @@ export const ProductsPage = () => (
       <ProductsTable />
     </div>
   </div>
-)
-
+);

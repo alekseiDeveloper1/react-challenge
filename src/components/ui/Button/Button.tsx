@@ -1,18 +1,14 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
-import styles from './Button.module.css'
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import styles from './Button.module.css';
 
-type ButtonVariant =
-  | 'primary'
-  | 'transparent'
-  | 'small'
-  | 'small-transparent'
+type ButtonVariant = 'primary' | 'transparent' | 'small' | 'small-transparent';
 
 type ButtonProps = {
-  children?: ReactNode
-  className?: string
-  icon?: string
-  variant?: ButtonVariant
-} & ButtonHTMLAttributes<HTMLButtonElement>
+  children?: ReactNode;
+  className?: string;
+  icon?: string;
+  variant?: ButtonVariant;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = ({
   children,
@@ -31,12 +27,14 @@ export const Button = ({
     className,
   ]
     .filter(Boolean)
-    .join(' ')
+    .join(' ');
 
   return (
     <button type={type} className={combinedClassName} {...rest}>
-      {icon && <img src={icon} className={styles.icon} alt="icon" aria-hidden />}
+      {icon && (
+        <img src={icon} className={styles.icon} alt="icon" aria-hidden />
+      )}
       {children}
     </button>
-  )
-}
+  );
+};

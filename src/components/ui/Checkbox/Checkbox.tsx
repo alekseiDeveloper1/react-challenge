@@ -1,15 +1,15 @@
-import type { InputHTMLAttributes, ReactNode } from 'react'
-import styles from './Checkbox.module.css'
+import type { InputHTMLAttributes, ReactNode } from 'react';
+import styles from './Checkbox.module.css';
 
 type CheckboxProps = {
-  label?: ReactNode
-  className?: string
-} & Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>
+  label?: ReactNode;
+  className?: string;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
 
 export const Checkbox = ({ id, label, className, ...rest }: CheckboxProps) => {
   const rootClassName = className
     ? `${styles.checkbox} ${className}`
-    : styles.checkbox
+    : styles.checkbox;
 
   return (
     <label className={rootClassName} htmlFor={id}>
@@ -21,6 +21,5 @@ export const Checkbox = ({ id, label, className, ...rest }: CheckboxProps) => {
       />
       {label && <span className={styles.checkbox__label}>{label}</span>}
     </label>
-  )
-}
-
+  );
+};

@@ -1,20 +1,20 @@
-import styles from './ProductsTable.module.css'
-import { Input } from '@/components/ui/Input/Input'
-import { Button } from '@/components/ui/Button/Button'
-import { Checkbox } from '@/components/ui/Checkbox/Checkbox'
-import search from '@/assets/icons/search.svg'
-import arrowsClockwise from '@/assets/icons/ArrowsClockwise.svg'
-import btn from '@/assets/icons/btn.svg'
+import styles from './ProductsTable.module.css';
+import { Input } from '@/components/ui/Input/Input';
+import { Button } from '@/components/ui/Button/Button';
+import { Checkbox } from '@/components/ui/Checkbox/Checkbox';
+import search from '@/assets/icons/search.svg';
+import arrowsClockwise from '@/assets/icons/ArrowsClockwise.svg';
+import btn from '@/assets/icons/btn.svg';
 
 type Product = {
-  id: string
-  name: string
-  vendor: string
-  sku: string
-  category: string
-  rating: string
-  price: string
-}
+  id: string;
+  name: string;
+  vendor: string;
+  sku: string;
+  category: string;
+  rating: string;
+  price: string;
+};
 
 const PRODUCTS: Product[] = [
   {
@@ -62,25 +62,21 @@ const PRODUCTS: Product[] = [
     rating: '3,3/5',
     price: '48 652,00',
   },
-]
+];
 
 export const ProductsTable = () => {
   return (
     <>
       <header className={styles.header}>
-          <h1 className={styles.title}>Товары</h1>
-          <div className={styles.searchInputWrapper}>
-            <Input
-              placeholder="Найти"
-              aria-label="Найти товары"
-              icon={search}
-            />
-          </div>
+        <h1 className={styles.title}>Товары</h1>
+        <div className={styles.searchInputWrapper}>
+          <Input placeholder="Найти" aria-label="Найти товары" icon={search} />
+        </div>
       </header>
-      <section >
+      <section>
         <div className={styles.headerActions}>
           <div className={styles.sectionTitle}>Все позиции</div>
-          <div className={styles.headerActionsBtn} >
+          <div className={styles.headerActionsBtn}>
             <Button
               icon={arrowsClockwise}
               variant="transparent"
@@ -107,9 +103,7 @@ export const ProductsTable = () => {
           {PRODUCTS.map((product, index) => (
             <div
               key={product.id}
-              className={`${styles.row} ${
-                index === 2 ? styles.rowActive : ''
-              }`}
+              className={`${styles.row} ${index === 2 ? styles.rowActive : ''}`}
             >
               <div className={styles.cellCheckbox}>
                 <Checkbox aria-label={`Выбрать товар ${product.name}`} />
@@ -117,7 +111,9 @@ export const ProductsTable = () => {
 
               <div className={styles.cellName}>
                 <div className={styles.cellNamePrimary}>{product.name}</div>
-                <div className={styles.cellNameSecondary}>{product.category}</div>
+                <div className={styles.cellNameSecondary}>
+                  {product.category}
+                </div>
               </div>
 
               <div className={styles.cellVendor}>{product.vendor}</div>
@@ -139,20 +135,15 @@ export const ProductsTable = () => {
                     variant="small-transparent"
                     aria-label={`Дополнительные действия с товаром ${product.name}`}
                     icon={btn}
-                  >
-                  </Button>
+                  ></Button>
                 </div>
               </div>
-              
             </div>
           ))}
         </div>
 
-        <div className={styles.footer}>
-          Показано 1–20 из 120
-        </div>
+        <div className={styles.footer}>Показано 1–20 из 120</div>
       </section>
     </>
-    
-  )
-}
+  );
+};

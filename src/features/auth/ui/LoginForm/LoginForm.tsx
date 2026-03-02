@@ -1,19 +1,19 @@
-import { useState } from 'react'
-import { Button } from '@/components/ui/Button/Button'
-import { Checkbox } from '@/components/ui/Checkbox/Checkbox'
-import { Input } from '@/components/ui/Input/Input'
-import cls from './LoginForm.module.css'
-import authLogo from '@/assets/auth-logo.svg'
-import lock from '@/assets/icons/lock-icon.svg'
-import user from '@/assets/icons/user-icon.svg'
+import { useState } from 'react';
+import { Button } from '@/components/ui/Button/Button';
+import { Checkbox } from '@/components/ui/Checkbox/Checkbox';
+import { Input } from '@/components/ui/Input/Input';
+import cls from './LoginForm.module.css';
+import authLogo from '@/assets/auth-logo.svg';
+import lock from '@/assets/icons/lock-icon.svg';
+import user from '@/assets/icons/user-icon.svg';
 export const LoginForm = () => {
-  const [userNeme, setUserName] = useState('test')
-  const [password, setPassword] = useState('password123')
-  const [remember, setRemember] = useState(false)
+  const [userNeme, setUserName] = useState('test');
+  const [password, setPassword] = useState('password123');
+  const [remember, setRemember] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-  }
+    event.preventDefault();
+  };
 
   return (
     <div
@@ -23,9 +23,11 @@ export const LoginForm = () => {
       aria-describedby="dialogDesc"
     >
       <div className={cls.logo}>
-        <img src={authLogo}  alt="authorization logo" />
+        <img src={authLogo} alt="authorization logo" />
       </div>
-      <h1 id="dialogTitle" className={cls.title}>Добро пожаловать!</h1>
+      <h1 id="dialogTitle" className={cls.title}>
+        Добро пожаловать!
+      </h1>
       <p id="dialogDesc" className={cls.subtitle}>
         Пожалуйста, авторизируйтесь
       </p>
@@ -79,6 +81,5 @@ export const LoginForm = () => {
         </div>
       </form>
     </div>
-  )
-}
-
+  );
+};

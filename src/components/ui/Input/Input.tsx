@@ -1,11 +1,11 @@
-import type { InputHTMLAttributes } from 'react'
-import styles from './Input.module.css'
+import type { InputHTMLAttributes } from 'react';
+import styles from './Input.module.css';
 type InputProps = {
-  label?: string
-  error?: string
-  icon?: string
-  wrapperClassName?: string
-} & InputHTMLAttributes<HTMLInputElement>
+  label?: string;
+  error?: string;
+  icon?: string;
+  wrapperClassName?: string;
+} & InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = ({
   label,
@@ -22,11 +22,11 @@ export const Input = ({
     wrapperClassName ?? '',
   ]
     .filter(Boolean)
-    .join(' ')
+    .join(' ');
 
   const inputClasses = className
     ? `${styles.input} ${className}`
-    : styles.input
+    : styles.input;
 
   return (
     <div className={styles.field}>
@@ -37,14 +37,11 @@ export const Input = ({
       )}
 
       <div className={wrapperClasses}>
-        {icon && (
-          <img src={icon} className={styles.icon} aria-hidden="true" />
-        )}
-        <input  id={id} className={inputClasses} {...rest} />
+        {icon && <img src={icon} className={styles.icon} aria-hidden="true" />}
+        <input id={id} className={inputClasses} {...rest} />
       </div>
 
       {error && <p className={styles.error}>{error}</p>}
     </div>
-  )
-}
-
+  );
+};
