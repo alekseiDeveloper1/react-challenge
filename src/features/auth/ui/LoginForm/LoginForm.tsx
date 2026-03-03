@@ -1,18 +1,29 @@
-import { useState } from 'react';
+import { useForm, type SubmitHandler } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/Button/Button';
 import { Checkbox } from '@/components/ui/Checkbox/Checkbox';
+import { useAuth } from '@/features/auth/hooks/useAuth';
+import { loginFormSchema, type LoginFormValues } from '@/types/auth';
 import { Input } from '@/components/ui/Input/Input';
 import cls from './LoginForm.module.css';
 import authLogo from '@/assets/auth-logo.svg';
 import lock from '@/assets/icons/lock-icon.svg';
 import user from '@/assets/icons/user-icon.svg';
 export const LoginForm = () => {
-  const [userNeme, setUserName] = useState('test');
-  const [password, setPassword] = useState('password123');
-  const [remember, setRemember] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormValues>({
+    resolver: zodResolver(loginFormSchema),
+    defaultValues: {
+      remember: false,
+    },
+  });
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const { mutate: login, isPending, error } = useAuth();
+  const onSubmit: SubmitHandler<LoginFormValues> = (data) => {
+    login(data);
   };
 
   return (
@@ -32,16 +43,16 @@ export const LoginForm = () => {
         Пожалуйста, авторизируйтесь
       </p>
 
-      <form className={cls.form} onSubmit={handleSubmit}>
+      <form className={cls.form} onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className={cls.field}>
           <Input
-            id="user"
-            type="string"
+            id="username"
+            type="text"
             label="Логин"
             placeholder="test"
             icon={user}
-            value={userNeme}
-            onChange={(event) => setUserName(event.target.value)}
+            error={errors.username?.message}
+            {...register('username')}
           />
         </div>
 
@@ -51,8 +62,8 @@ export const LoginForm = () => {
             type="password"
             label="Пароль"
             icon={lock}
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
+            error={errors.password?.message}
+            {...register('password')}
           />
         </div>
 
@@ -60,12 +71,18 @@ export const LoginForm = () => {
           <Checkbox
             id="remember"
             label="Запомнить данные"
-            checked={remember}
-            onChange={(event) => setRemember(event.target.checked)}
+            {...register('remember')}
           />
         </div>
 
-        <Button type="submit">Войти</Button>
+        {error && (
+          <p className={cls.error} role="alert">
+            Неверный логин или пароль.
+          </p>
+        )}
+        <Button type="submit" disabled={isPending}>
+          {isPending ? 'Вход...' : 'Войти'}
+        </Button>
 
         <div className={cls.divider}>
           <span className={cls.line} />
