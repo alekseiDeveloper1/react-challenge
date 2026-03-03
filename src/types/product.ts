@@ -3,7 +3,9 @@ import { z } from 'zod';
 export const ProductSchema = z.object({
   id: z.number(),
   title: z.string(),
-  description: z.string(),
+  brand: z.string(),
+  sku: z.string(),
+  rating: z.float32(),
   price: z.number(),
   thumbnail: z.string().url({ message: 'Invalid URL format' }),
 });

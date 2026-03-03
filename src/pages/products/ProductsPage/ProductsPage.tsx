@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { useProducts } from '@/features/products/hooks/useProducts';
 import { ProductsTable } from '@/features/products/ui/ProductsTable/ProductsTable';
 import styles from './ProductsPage.module.css';
-import { Input } from '@/components/ui/Input/Input';
-import search from '@/assets/icons/search.svg';
+import { ProductsHeader } from '@/features/products/ui/ProductsHeader/ProductsHeader.tsx';
 
 export const ProductsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -16,18 +15,7 @@ export const ProductsPage = () => {
   return (
     <div className={styles.page}>
       <div className={styles.pageInner}>
-        <header className={styles.header}>
-          <h1 className={styles.title}>Товары</h1>
-          <div className={styles.searchInputWrapper}>
-            <Input
-              placeholder="Найти"
-              aria-label="Найти товары"
-              icon={search}
-              value={searchTerm}
-              onChange={handleSearch}
-            />
-          </div>
-        </header>
+        <ProductsHeader searchTerm={searchTerm} handleSearch={handleSearch} />
         <ProductsTable
           products={data?.products}
           isLoading={isLoading}

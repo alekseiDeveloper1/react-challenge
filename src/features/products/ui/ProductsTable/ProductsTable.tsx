@@ -49,7 +49,9 @@ export const ProductsTable = ({
             <Checkbox aria-label="Выбрать все позиции" />
           </div>
           <div className={styles.cellName}>Наименование</div>
-          <div className={styles.cellDescription}>Описание</div>
+          <div className={styles.cellVendor}>Вендор</div>
+          <div className={styles.cellSku}>Артикул</div>
+          <div className={styles.cellRating}>Оценка</div>
           <div className={styles.cellPrice}>Цена, ₽</div>
           <div className={styles.cellActions} />
         </div>
@@ -64,7 +66,9 @@ export const ProductsTable = ({
               <div className={styles.cellNamePrimary}>{product.title}</div>
             </div>
 
-            <div className={styles.cellDescription}>{product.description}</div>
+            <div className={styles.cellVendor}>{product.brand ?? '—'}</div>
+            <div className={styles.cellSku}>{product.sku}</div>
+            <div className={styles.cellRatingValue}>{product.rating}</div>
             <div className={styles.cellPriceValue}>{product.price}</div>
             <div className={styles.btnWrap}>
               <div className={styles.cellQuantity}>

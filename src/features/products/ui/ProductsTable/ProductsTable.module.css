@@ -4,26 +4,6 @@ section {
   padding: 30px;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 30px;
-  background: white;
-  padding: 20px 30% 20px 20px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.title {
-  flex: 1 1 auto;
-  margin: 0;
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--color-text-primary);
-}
-
 .headerActions {
   display: flex;
   align-items: center;
@@ -47,10 +27,6 @@ section {
 
 .searchRow {
   margin-bottom: 16px;
-}
-
-.searchInputWrapper {
-  flex: 1 1 40%;
 }
 
 .sectionTitle {

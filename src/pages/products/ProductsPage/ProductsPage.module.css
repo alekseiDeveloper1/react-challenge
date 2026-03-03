@@ -3,11 +3,10 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 32px 0px;
+  padding: 32px 0;
   background: var(--color-bg-page);
 }
 
 .pageInner {
   width: 100%;
 }
-
