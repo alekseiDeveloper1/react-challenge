@@ -12,6 +12,7 @@ interface ProductsTableProps {
   isLoading: boolean;
   isError: boolean;
   error: Error | null;
+  onAddProduct: () => void;
 }
 
 export const ProductsTable = ({
@@ -19,6 +20,7 @@ export const ProductsTable = ({
   isLoading,
   isError,
   error,
+  onAddProduct,
 }: ProductsTableProps) => {
   if (isLoading) {
     return <Spinner />;
@@ -39,7 +41,9 @@ export const ProductsTable = ({
             className={styles.headerIconButton}
             aria-label="Обновить список товаров"
           />
-          <Button className={styles.headerPrimaryButton}>Добавить</Button>
+          <Button className={styles.headerPrimaryButton} onClick={onAddProduct}>
+            Добавить
+          </Button>
         </div>
       </div>
 

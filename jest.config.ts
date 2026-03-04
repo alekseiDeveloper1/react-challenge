@@ -1,5 +1,5 @@
 export default {
-  roots: ['<rootDir>/src/'],
+  roots: ['<rootDir>/src'],
   testEnvironment: 'jest-environment-jsdom',
   transform: {
     '^.+\\.tsx?$': [
@@ -11,7 +11,7 @@ export default {
           useDefineForClassFields: true,
           lib: ['ES2022', 'DOM', 'DOM.Iterable'],
           module: 'ESNext',
-          types: ['vite/client', 'jest'],
+          types: ['vite/client', 'jest', '@testing-library/jest-dom'],
           skipLibCheck: true,
           esModuleInterop: true,
           moduleResolution: 'bundler',
@@ -30,7 +30,7 @@ export default {
       },
     ],
   },
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+  setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     '\\.svg$': '<rootDir>/__mocks__/fileMock.js',
