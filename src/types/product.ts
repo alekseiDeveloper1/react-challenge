@@ -19,3 +19,12 @@ export const ProductsResponseSchema = z.object({
 
 export type Product = z.infer<typeof ProductSchema>;
 export type ProductsResponse = z.infer<typeof ProductsResponseSchema>;
+
+export const AddProductSchema = z.object({
+  name: z.string().min(1, 'Наименование обязательно'),
+  price: z.coerce.number().positive('Цена должна быть положительной'),
+  vendor: z.string().min(1, 'Вендор обязателен'),
+  article: z.string().min(1, 'Артикул обязателен'),
+});
+
+export type AddProductFormValues = z.infer<typeof AddProductSchema>;

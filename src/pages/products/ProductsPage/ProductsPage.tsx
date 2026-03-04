@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { ProductsHeader } from '@/features/products/ui/ProductsHeader/ProductsHeader';
 import { ProductsTable } from '@/features/products/ui/ProductsTable/ProductsTable';
-import {
-  AddProductForm,
-  type AddProductFormValues,
-} from '@/features/products/ui/AddProductForm/AddProductForm';
+import { AddProductForm } from '@/features/products/ui/AddProductForm/AddProductForm';
 import { useProducts } from '@/features/products/hooks/useProducts';
+import type { AddProductFormValues } from '@/types/product.ts';
 import styles from './ProductsPage.module.css';
 
 export const ProductsPage = () => {
