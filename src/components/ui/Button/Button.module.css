@@ -52,10 +52,14 @@
 }
 
 .button_small {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 52px;
-    height: 26px;
-    padding: 0;
+    height: 27px;
+    padding: 0 0 1px;
     font-size: 14px;
+
 }
 
 .button_small_transparent {

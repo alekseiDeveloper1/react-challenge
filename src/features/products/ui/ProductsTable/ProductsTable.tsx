@@ -68,7 +68,11 @@ export const ProductsTable = ({
 
             <div className={styles.cellVendor}>{product.brand ?? '—'}</div>
             <div className={styles.cellSku}>{product.sku}</div>
-            <div className={styles.cellRatingValue}>{product.rating}</div>
+            <div
+              className={`${styles.cellRatingValue} ${product.rating < 3 ? styles.lowRating : ''}`}
+            >
+              {product.rating}
+            </div>
             <div className={styles.cellPriceValue}>{product.price}</div>
             <div className={styles.btnWrap}>
               <div className={styles.cellQuantity}>
@@ -90,10 +94,6 @@ export const ProductsTable = ({
             </div>
           </div>
         ))}
-      </div>
-
-      <div className={styles.footer}>
-        Показано 1–{products?.length} из {products?.length}
       </div>
     </section>
   );

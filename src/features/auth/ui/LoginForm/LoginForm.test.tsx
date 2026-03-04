@@ -60,6 +60,7 @@ describe('LoginForm', () => {
       expect(mockMutate).toHaveBeenCalledWith({
         username: 'testuser',
         password: 'password123',
+        remember: false,
       });
     });
   });

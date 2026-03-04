@@ -11,7 +11,7 @@ export default {
           useDefineForClassFields: true,
           lib: ['ES2022', 'DOM', 'DOM.Iterable'],
           module: 'ESNext',
-          types: ['vite/client'],
+          types: ['vite/client', 'jest'],
           skipLibCheck: true,
           esModuleInterop: true,
           moduleResolution: 'bundler',
@@ -33,9 +33,8 @@ export default {
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '\\.svg$': '<rootDir>/__mocks__/fileMock.js',
     '^@/(.*)$': '<rootDir>/src/$1',
-    '^/vite.svg$': '<rootDir>/__mocks__/fileMock.js',
-    './assets/react.svg': '<rootDir>/__mocks__/fileMock.js',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 };
