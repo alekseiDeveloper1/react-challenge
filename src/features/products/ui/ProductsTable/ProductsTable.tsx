@@ -6,6 +6,7 @@ import btn from '@/assets/icons/btn.svg';
 import { Spinner } from '@/components/Spinner';
 import { Error } from '@/components/Error';
 import type { Product } from '@/types/product';
+import cn from 'classnames';
 
 interface ProductsTableProps {
   products?: Product[];
@@ -13,6 +14,9 @@ interface ProductsTableProps {
   isError: boolean;
   error: Error | null;
   onAddProduct: () => void;
+  onSort: (key: keyof Product) => void;
+  sortKey: keyof Product | null;
+  sortOrder: 'asc' | 'desc';
 }
 
 export const ProductsTable = ({
@@ -21,6 +25,9 @@ export const ProductsTable = ({
   isError,
   error,
   onAddProduct,
+  onSort,
+  sortKey,
+  sortOrder,
 }: ProductsTableProps) => {
   if (isLoading) {
     return <Spinner />;
@@ -29,6 +36,11 @@ export const ProductsTable = ({
   if (isError) {
     return <Error message={error?.message || 'Something went wrong'} />;
   }
+
+  const getSortClassName = (key: keyof Product) => {
+    if (sortKey !== key) return '';
+    return sortOrder === 'asc' ? styles.sortAsc : styles.sortDesc;
+  };
 
   return (
     <section>
@@ -52,11 +64,36 @@ export const ProductsTable = ({
           <div className={styles.cellCheckbox}>
             <Checkbox aria-label="Выбрать все позиции" />
           </div>
-          <div className={styles.cellName}>Наименование</div>
-          <div className={styles.cellVendor}>Вендор</div>
-          <div className={styles.cellSku}>Артикул</div>
-          <div className={styles.cellRating}>Оценка</div>
-          <div className={styles.cellPrice}>Цена, ₽</div>
+          <div
+            className={cn(styles.cellName, styles.sortable, getSortClassName('title'))}
+            onClick={() => onSort('title')}
+          >
+            Наименование
+          </div>
+          <div
+            className={cn(styles.cellVendor, styles.sortable, getSortClassName('brand'))}
+            onClick={() => onSort('brand')}
+          >
+            Вендор
+          </div>
+          <div
+            className={cn(styles.cellSku, styles.sortable, getSortClassName('sku'))}
+            onClick={() => onSort('sku')}
+          >
+            Артикул
+          </div>
+          <div
+            className={cn(styles.cellRating, styles.sortable, getSortClassName('rating'))}
+            onClick={() => onSort('rating')}
+          >
+            Оценка
+          </div>
+          <div
+            className={cn(styles.cellPrice, styles.sortable, getSortClassName('price'))}
+            onClick={() => onSort('price')}
+          >
+            Цена, ₽
+          </div>
           <div className={styles.cellActions} />
         </div>
 
@@ -73,7 +110,9 @@ export const ProductsTable = ({
             <div className={styles.cellVendor}>{product.brand ?? '—'}</div>
             <div className={styles.cellSku}>{product.sku}</div>
             <div
-              className={`${styles.cellRatingValue} ${product.rating < 3 ? styles.lowRating : ''}`}
+              className={`${styles.cellRatingValue} ${
+                product.rating < 3 ? styles.lowRating : ''
+              }`}
             >
               {product.rating}
             </div>

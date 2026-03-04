@@ -6,6 +6,6 @@ const PRODUCTS_QUERY_KEY = 'products';
 export const useProducts = (searchTerm?: string) => {
   return useQuery({
     queryKey: [PRODUCTS_QUERY_KEY, searchTerm],
-    queryFn: () => productsService.getProducts(searchTerm),
+    queryFn: ({ signal }) => productsService.getProducts(searchTerm, signal),
   });
 };

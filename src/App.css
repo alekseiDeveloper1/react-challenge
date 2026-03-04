@@ -1,5 +1,7 @@
 #root {
+  background-color: var(--color-bg-page);
   width: 100%;
+  min-height: 100vh;
 }
 
 body {
