@@ -65,31 +65,51 @@ export const ProductsTable = ({
             <Checkbox aria-label="Выбрать все позиции" />
           </div>
           <div
-            className={cn(styles.cellName, styles.sortable, getSortClassName('title'))}
+            className={cn(
+              styles.cellName,
+              styles.sortable,
+              getSortClassName('title'),
+            )}
             onClick={() => onSort('title')}
           >
             Наименование
           </div>
           <div
-            className={cn(styles.cellVendor, styles.sortable, getSortClassName('brand'))}
+            className={cn(
+              styles.cellVendor,
+              styles.sortable,
+              getSortClassName('brand'),
+            )}
             onClick={() => onSort('brand')}
           >
             Вендор
           </div>
           <div
-            className={cn(styles.cellSku, styles.sortable, getSortClassName('sku'))}
+            className={cn(
+              styles.cellSku,
+              styles.sortable,
+              getSortClassName('sku'),
+            )}
             onClick={() => onSort('sku')}
           >
             Артикул
           </div>
           <div
-            className={cn(styles.cellRating, styles.sortable, getSortClassName('rating'))}
+            className={cn(
+              styles.cellRating,
+              styles.sortable,
+              getSortClassName('rating'),
+            )}
             onClick={() => onSort('rating')}
           >
             Оценка
           </div>
           <div
-            className={cn(styles.cellPrice, styles.sortable, getSortClassName('price'))}
+            className={cn(
+              styles.cellPrice,
+              styles.sortable,
+              getSortClassName('price'),
+            )}
             onClick={() => onSort('price')}
           >
             Цена, ₽

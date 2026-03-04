@@ -15,7 +15,7 @@ export const ProductsPage = () => {
   const [isAddModalOpen, setAddModalOpen] = useState(false);
 
   const { sortedProducts, handleSort, sortKey, sortOrder } = useProductsSort(
-    data?.products
+    data?.products,
   );
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
