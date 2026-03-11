@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Button } from '@/components/ui/Button/Button';
 import { Input } from '@/components/ui/Input/Input';
 import styles from './AddProductForm.module.css';
@@ -12,13 +10,19 @@ interface AddProductFormProps {
   onAddProduct: (data: AddProductFormValues) => void;
 }
 
-export const AddProductForm: React.FC<AddProductFormProps> = (props) => {
-  const { register, handleSubmit, errors } = useAddProductForm(props);
+export const AddProductForm = ({
+  onClose,
+  onAddProduct,
+}: AddProductFormProps) => {
+  const { register, handleSubmit, errors } = useAddProductForm({
+    onClose,
+    onAddProduct,
+  });
 
   return (
-    <div className={styles.overlay} onClick={props.onClose}>
+    <div className={styles.overlay} onClick={onClose}>
       <div className={styles.card} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeButton} onClick={props.onClose}>
+        <button className={styles.closeButton} onClick={onClose}>
           <img src={crossIcon} alt="Close" />
         </button>
         <h2 className={styles.title}>Добавить товар</h2>

@@ -4,7 +4,7 @@ import search from '@/assets/icons/search.svg';
 
 interface ProductsHeaderProps {
   searchTerm: string;
-  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSearch: (value: string) => void;
 }
 
 export const ProductsHeader = ({
@@ -20,7 +20,7 @@ export const ProductsHeader = ({
           aria-label="Найти товары"
           icon={search}
           value={searchTerm}
-          onChange={handleSearch}
+          onChange={(e) => handleSearch(e.target.value)}
         />
       </div>
     </header>

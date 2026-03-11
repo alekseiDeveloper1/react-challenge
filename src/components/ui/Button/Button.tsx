@@ -1,5 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import styles from './Button.module.css';
+import cn from 'classnames';
 
 type ButtonVariant = 'primary' | 'transparent' | 'small' | 'small-transparent';
 
@@ -18,17 +19,16 @@ export const Button = ({
   type = 'button',
   ...rest
 }: ButtonProps) => {
-  const combinedClassName = [
+  const combinedClassName = cn(
     styles.button,
-    variant === 'transparent' && styles.button_transparent,
-    variant === 'small' && styles.button_small,
-    variant === 'small-transparent' && styles.button_small_transparent,
-    icon && styles.button_icon,
+    {
+      [styles.buttonTransparent]: variant === 'transparent',
+      [styles.buttonSmall]: variant === 'small',
+      [styles.buttonSmallTransparent]: variant === 'small-transparent',
+      [styles.buttonIcon]: icon,
+    },
     className,
-  ]
-    .filter(Boolean)
-    .join(' ');
-
+  );
   return (
     <button type={type} className={combinedClassName} {...rest}>
       {icon && (

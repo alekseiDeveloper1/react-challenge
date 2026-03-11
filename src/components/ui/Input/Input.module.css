@@ -10,7 +10,7 @@
   color: var(--color-text-primary);
 }
 
-.input-wrapper {
+.inputWrapper {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -20,7 +20,7 @@
   background: var(--color-bg-surface);
 }
 
-.input-wrapper_error {
+.inputWrapperError {
   border-color: #ef4444;
 }
 

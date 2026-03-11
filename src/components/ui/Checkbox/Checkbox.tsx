@@ -1,5 +1,6 @@
 import type { InputHTMLAttributes, ReactNode } from 'react';
 import styles from './Checkbox.module.css';
+import cn from 'classnames';
 
 type CheckboxProps = {
   label?: ReactNode;
@@ -7,19 +8,17 @@ type CheckboxProps = {
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
 
 export const Checkbox = ({ id, label, className, ...rest }: CheckboxProps) => {
-  const rootClassName = className
-    ? `${styles.checkbox} ${className}`
-    : styles.checkbox;
+  const rootClassName = cn(styles.checkbox, className);
 
   return (
     <label className={rootClassName} htmlFor={id}>
       <input
         id={id}
         type="checkbox"
-        className={styles.checkbox__control}
+        className={styles.checkboxControl}
         {...rest}
       />
-      {label && <span className={styles.checkbox__label}>{label}</span>}
+      {label && <span className={styles.checkboxLabel}>{label}</span>}
     </label>
   );
 };

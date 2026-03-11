@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ProductsHeader } from '@/features/products/ui/ProductsHeader/ProductsHeader';
 import { ProductsTable } from '@/features/products/ui/ProductsTable/ProductsTable';
 import { AddProductForm } from '@/features/products/ui/AddProductForm/AddProductForm';
@@ -18,8 +18,8 @@ export const ProductsPage = () => {
     data?.products,
   );
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+  const handleSearch = (value: string) => {
+    setSearchTerm(value);
   };
 
   const handleAddProduct = (data: AddProductFormValues) => {

@@ -10,9 +10,11 @@
   --color-text-placeholder: #9ca3af;
   --color-text-subtle: rgba(119, 119, 119, 0.5);
   --color-text-error: #ef4444;
+  --color-text-error-message: #721c24;
 
   --color-bg-page: #f9f9f9;
   --color-bg-surface: #ffffff;
+  --color-bg-error-message: #f8d7da;
 
   --color-border-default: #e2e8f0;
   --color-border-muted: #e5e7eb;

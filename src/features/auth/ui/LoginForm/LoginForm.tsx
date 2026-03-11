@@ -5,10 +5,11 @@ import { Checkbox } from '@/components/ui/Checkbox/Checkbox';
 import { useAuth } from '@/features/auth/hooks/useAuth';
 import { loginFormSchema, type LoginFormValues } from '@/types/auth';
 import { Input } from '@/components/ui/Input/Input';
-import cls from './LoginForm.module.css';
+import styles from './LoginForm.module.css';
 import authLogo from '@/assets/auth-logo.svg';
 import lock from '@/assets/icons/lock-icon.svg';
 import user from '@/assets/icons/user-icon.svg';
+
 export const LoginForm = () => {
   const {
     register,
@@ -17,6 +18,8 @@ export const LoginForm = () => {
   } = useForm<LoginFormValues>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
+      username: '',
+      password: '',
       remember: false,
     },
   });
@@ -28,23 +31,27 @@ export const LoginForm = () => {
 
   return (
     <div
-      className={cls.card}
+      className={styles.card}
       role="dialog"
       aria-labelledby="dialogTitle"
       aria-describedby="dialogDesc"
     >
-      <div className={cls.logo}>
+      <div className={styles.logo}>
         <img src={authLogo} alt="authorization logo" />
       </div>
-      <h1 id="dialogTitle" className={cls.title}>
+      <h1 id="dialogTitle" className={styles.title}>
         Добро пожаловать!
       </h1>
-      <p id="dialogDesc" className={cls.subtitle}>
+      <p id="dialogDesc" className={styles.subtitle}>
         Пожалуйста, авторизируйтесь
       </p>
 
-      <form className={cls.form} onSubmit={handleSubmit(onSubmit)} noValidate>
-        <div className={cls.field}>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit(onSubmit)}
+        noValidate
+      >
+        <div className={styles.field}>
           <Input
             id="username"
             type="text"
@@ -56,7 +63,7 @@ export const LoginForm = () => {
           />
         </div>
 
-        <div className={cls.field}>
+        <div className={styles.field}>
           <Input
             id="password"
             type="password"
@@ -67,7 +74,7 @@ export const LoginForm = () => {
           />
         </div>
 
-        <div className={cls.extras}>
+        <div className={styles.extras}>
           <Checkbox
             id="remember"
             label="Запомнить данные"
@@ -76,7 +83,7 @@ export const LoginForm = () => {
         </div>
 
         {error && (
-          <p className={cls.error} role="alert">
+          <p className={styles.error} role="alert">
             Неверный логин или пароль.
           </p>
         )}
@@ -84,15 +91,15 @@ export const LoginForm = () => {
           {isPending ? 'Вход...' : 'Войти'}
         </Button>
 
-        <div className={cls.divider}>
-          <span className={cls.line} />
-          <span className={cls.label}>или</span>
-          <span className={cls.line} />
+        <div className={styles.divider}>
+          <span className={styles.line} />
+          <span className={styles.label}>или</span>
+          <span className={styles.line} />
         </div>
 
-        <div className={cls.footer}>
+        <div className={styles.footer}>
           Нет аккаунта?{' '}
-          <a href="#" className={cls.link}>
+          <a href="#" className={styles.link}>
             Создать
           </a>
         </div>

@@ -6,12 +6,11 @@ export const productsService = {
     searchTerm?: string,
     signal?: AbortSignal,
   ): Promise<ProductsResponse> => {
-    const url = searchTerm ? `/products/search?q=${searchTerm}` : '/products';
-    const { data } = await api.get<ProductsResponse>(url, { signal });
+    const url = searchTerm ? `/products/search` : '/products';
+    const { data } = await api.get<ProductsResponse>(url, {
+      signal,
+      params: { q: searchTerm },
+    });
     return data;
-  },
-  addProduct: async (newProduct: { title: string }): Promise<void> => {
-    console.log('Adding product (mock):', newProduct);
-    return Promise.resolve();
   },
 };

@@ -1,9 +1,7 @@
 .errorContainer {
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
-  color: #721c24;
+  background-color: var(--color-bg-error-message);
+  color: var(--color-text-error-message);
   padding: 0.75rem 1.25rem;
-  border: 1px solid transparent;
   border-radius: 0.25rem;
   position: relative;
 }
@@ -14,10 +12,4 @@
 
 .errorMessage {
   display: block;
-}
-
-@media (min-width: 576px) {
-  .errorMessage {
-    display: inline;
-  }
 }

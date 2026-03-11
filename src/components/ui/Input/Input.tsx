@@ -1,5 +1,7 @@
 import type { InputHTMLAttributes } from 'react';
 import styles from './Input.module.css';
+import cn from 'classnames';
+
 type InputProps = {
   label?: string;
   error?: string;
@@ -16,17 +18,13 @@ export const Input = ({
   wrapperClassName,
   ...rest
 }: InputProps) => {
-  const wrapperClasses = [
-    styles['input-wrapper'],
-    error ? styles['input-wrapper_error'] : '',
-    wrapperClassName ?? '',
-  ]
-    .filter(Boolean)
-    .join(' ');
+  const wrapperClasses = cn(
+    styles.inputWrapper,
+    { [styles.inputWrapperError]: error },
+    wrapperClassName,
+  );
 
-  const inputClasses = className
-    ? `${styles.input} ${className}`
-    : styles.input;
+  const inputClasses = cn(styles.input, className);
 
   return (
     <div className={styles.field}>
@@ -37,7 +35,14 @@ export const Input = ({
       )}
 
       <div className={wrapperClasses}>
-        {icon && <img src={icon} className={styles.icon} aria-hidden="true" />}
+        {icon && (
+          <img
+            src={icon}
+            className={styles.icon}
+            aria-hidden="true"
+            alt="icon"
+          />
+        )}
         <input id={id} className={inputClasses} {...rest} />
       </div>
 

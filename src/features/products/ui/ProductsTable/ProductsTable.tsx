@@ -38,8 +38,10 @@ export const ProductsTable = ({
   }
 
   const getSortClassName = (key: keyof Product) => {
-    if (sortKey !== key) return '';
-    return sortOrder === 'asc' ? styles.sortAsc : styles.sortDesc;
+    return cn({
+      [styles.sortAsc]: sortKey === key && sortOrder === 'asc',
+      [styles.sortDesc]: sortKey === key && sortOrder === 'desc',
+    });
   };
 
   return (
